@@ -1,0 +1,14 @@
+{
+  "name": "blackline-dynasty-website",
+  "version": "1.0.140",
+  "private": true,
+  "description": "BLACKLINE website with Discord OAuth, public league data, connected feature workspaces, authenticated requests, score reports, and bot-processed recruiting updates.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

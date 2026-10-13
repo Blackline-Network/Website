@@ -1,0 +1,16 @@
+{
+  "name": "blackline-bot",
+  "version": "1.0.169",
+  "description": "BLACKLINE Website Recruiting Action Bridge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test",
+    "release-audit": "node scripts/release-audit.js",
+    "monitor:twitch": "node blackline-website/stream-monitor.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^18.0.6"
+  }
+}

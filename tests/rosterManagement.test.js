@@ -1,0 +1,10 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const { upsertPlayer, upsertProspect, teamRoster, teamProspects, validatePlayer } = require('../utils/rosterManagement');
+function dynasty() { return { season: 3, teamSelections: [{ team: 'Alabama' }, { team: 'Auburn' }] }; }
+test('valid player is added and listed by team', () => { const d = dynasty(); const r = upsertPlayer(d,{name:'Jordan Smith',team:'Alabama',position:'QB',classYear:'SO',number:12},'staff'); assert.equal(r.created,true); assert.equal(teamRoster(d,'Alabama').length,1); });
+test('same player/team updates rather than duplicates', () => { const d = dynasty(); upsertPlayer(d,{name:'Jordan Smith',team:'Alabama',position:'QB',classYear:'SO'},'a'); const r=upsertPlayer(d,{name:' Jordan  Smith ',team:'Alabama',position:'QB',classYear:'JR',number:8},'b'); assert.equal(r.created,false); assert.equal(d.rosterPlayers.length,1); assert.equal(d.rosterPlayers[0].classYear,'JR'); });
+test('invalid roster data is rejected', () => assert.match(validatePlayer({name:'',team:'Alabama',position:'QB',classYear:'SO'}),/name/));
+test('prospects update on name/team/season identity', () => { const d=dynasty(); upsertProspect(d,{name:'Casey',team:'Alabama',position:'WR',stars:3,season:4,status:'Interested'},'a'); const r=upsertProspect(d,{name:'Casey',team:'Alabama',position:'WR',stars:4,season:4,status:'Committed'},'b'); assert.equal(r.created,false); assert.equal(d.recruitingProspects.length,1); assert.equal(teamProspects(d,'Alabama',4)[0].stars,4); });
+test('prospect star ratings are bounded', () => { const r=upsertProspect(dynasty(),{name:'Casey',team:'Alabama',position:'WR',stars:8,season:4},'a'); assert.match(r.error,/Star rating/); });
+test('team views do not leak other teams players', () => { const d=dynasty(); upsertPlayer(d,{name:'A',team:'Alabama',position:'QB',classYear:'FR'},'a'); upsertPlayer(d,{name:'B',team:'Auburn',position:'RB',classYear:'JR'},'a'); assert.deepEqual(teamRoster(d,'Alabama').map(p=>p.name),['A']); });

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0f"><meta name="description" content="BLACKLINE — one gaming hub, multiple dynasties. Follow leagues, teams, seasons and community updates.">
+  <title>BLACKLINE — Dynasty Network</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="BLACKLINE home"><span class="brand-mark">B</span><span class="brand-copy"><strong>BLACKLINE</strong><small>DYNASTY NETWORK</small></span></a>
+      <div class="side-label">COMMUNITY</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-page="home"><span class="nav-icon">⌂</span> Hub overview</a>
+        <a href="#dynasties" class="nav-link" data-page="dynasties"><span class="nav-icon">▦</span> All dynasties <span class="nav-count" id="navDynastyCount">—</span></a>
+        <a href="#tools" class="nav-link" data-page="tools"><span class="nav-icon">⌘</span> Platform tools <span class="nav-count">18</span></a>
+        <a href="#portal" class="nav-link" data-page="portal"><span class="nav-icon">◉</span> Member portal</a>
+        <a href="/community.html" class="nav-link"><span class="nav-icon">✦</span> Creator feed</a>
+      </nav>
+      <div class="side-label side-label-row">YOUR LEAGUES <span class="live-dot"></span></div>
+      <div class="league-nav" id="leagueNav"><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="sidebar-bottom">
+        <div class="discord-card"><div class="discord-glyph">◉</div><div><strong>Keep it in the hub.</strong><p>One community. Every rivalry.</p></div><a href="#community" aria-label="Community information">↗</a></div>
+        <div class="profile-mini"><div class="avatar">BL</div><div class="profile-name"><strong>BLACKLINE</strong><small>Community Network</small></div><span class="status-pip"></span></div>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button><div class="breadcrumb"><span>BLACKLINE</span><b>/</b><strong id="breadcrumbCurrent">Hub overview</strong></div><div class="topbar-right"><div class="connection-status"><span class="live-dot"></span><span id="connectionText">Connecting to league data</span></div><button class="icon-button" id="refreshBtn" title="Refresh league data" aria-label="Refresh league data">↻</button><a class="discord-button" href="#community"><span>◉</span> Community</a><a class="auth-button" id="authButton" href="/auth/discord">Sign in with Discord</a></div></header>
+      <div class="page-content" id="pageContent">
+        <section class="hero" id="hero">
+          <div class="hero-noise"></div><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> THE NETWORK IS LIVE</div><h1>ONE HUB.<br><em>EVERY DYNASTY.</em></h1><p>One community brings every league together. Track the seasons, follow the rivalries, and make your run count.</p><div class="hero-actions"><a class="button button-primary" href="#dynasties">Explore dynasties <span>↗</span></a><a class="button button-quiet" href="#community">Join the community <span>→</span></a></div></div>
+          <div class="hero-graphic" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-monogram">B<span>L</span></div><div class="graphic-tag tag-top">EST. <b>BLACKLINE</b></div><div class="graphic-tag tag-bottom"><span class="live-dot"></span> MULTI-DYNASTY NETWORK</div><div class="hero-crosshair">+</div></div>
+          <div class="hero-index"><span>01</span><span class="index-rule"></span><span>COMMUNITY FIRST</span></div>
+        </section>
+        <section class="stats-strip" aria-label="Network statistics"><div class="stat-item"><span class="stat-label">ACTIVE DYNASTIES</span><strong id="statDynasties">—</strong><span class="stat-foot">Across the network</span></div><div class="stat-item"><span class="stat-label">COACH SEATS FILLED</span><strong id="statCoaches">—</strong><span class="stat-foot">Across active leagues</span></div><div class="stat-item"><span class="stat-label">GAMES & LEAGUES</span><strong id="statGames">MULTI</strong><span class="stat-foot">Different ways to compete</span></div><div class="stat-item stat-status"><span class="stat-label">NETWORK STATUS</span><strong><span class="live-dot"></span> CONNECTED</strong><span class="stat-foot" id="lastUpdated">Waiting for data…</span></div></section>
+        <section class="section-block" id="dynastySection"><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> FIND YOUR LEAGUE</div><h2>The dynasty <em>directory.</em></h2><p class="section-subtitle">Every league has its own identity. All of them share one home.</p></div><a class="text-link" href="#dynasties">View all dynasties <span>↗</span></a></div><div class="directory-tools"><div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search dynasties or games…" aria-label="Search dynasties"></div><div class="filter-group" id="filterGroup"><button class="filter-chip selected" data-filter="all">All leagues</button><button class="filter-chip" data-filter="ncaa">College football</button><button class="filter-chip" data-filter="madden">Madden</button><button class="filter-chip" data-filter="2k">NBA 2K</button></div></div><div class="dynasty-grid" id="dynastyGrid"><div class="loading-card"></div><div class="loading-card"></div></div></section>
+        <section class="bottom-grid" id="community"><div class="community-panel"><div class="panel-kicker">THE BLACKLINE STANDARD</div><h2>Different leagues.<br><em>One brotherhood.</em></h2><p>Whether you're chasing a national title or building a new rivalry, the hub keeps the community connected while every dynasty runs its own race.</p><a class="button button-primary" href="#dynasties">Find your dynasty <span>→</span></a><div class="panel-watermark">BL</div></div><div class="activity-panel"><div class="panel-heading"><div><div class="panel-kicker">NETWORK PULSE</div><h3>League activity</h3></div><span class="panel-live"><span class="live-dot"></span> LIVE DATA</span></div><div id="activityList" class="activity-list"><div class="activity-empty">Waiting for connected dynasty data…</div></div><div class="activity-footer">Updates reflect the connected bot data file.</div></div></section>
+        <section class="portal-section" id="portalSection" hidden></section>
+        <footer class="footer"><a class="footer-brand" href="#home">BLACKLINE<span>®</span></a><span>ONE COMMUNITY. EVERY DYNASTY.</span><span id="footerYear">© BLACKLINE</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body></html>

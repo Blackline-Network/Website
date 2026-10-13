@@ -1,0 +1,31 @@
+
+# Secrets and environment variables
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Local configuration and temporary files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build and coverage output
+coverage/
+dist/
+build/
+
+# Private keys and certificates
+*.pem
+*.key
+
+# Runtime data - keep local until deployment requirements are verified
+data/
